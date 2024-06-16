@@ -4,6 +4,7 @@ let scissorsBtn = document.getElementById("scissors")
 let resetBtn = document.getElementById("reset")
 let gameBtn = document.querySelector(".game-btn");
 
+
 //0 = rock
 //1 = paper
 //2 = scissors
@@ -17,10 +18,10 @@ let score = {
 
 let game = ["rock", "paper", "scissors"];
 
+
 function versus(p1) {
-    console.log("ON")
     let p2 = Math.floor(Math.random() * 3);
-    console.log(p2 = game[p2]);
+    p2 = game[p2];
 
     if (p1 === p2){
         alert(`You picked ${p1} and computer picked ${p2}. It's a draw, \n Wins: ${score.player1}, Losses: ${score.player2}, Draws: ${score.draw+1}`);
@@ -46,6 +47,16 @@ function versus(p1) {
             score.player1 += 1;
         }
     score.round += 1;
+
+}
+
+function reset(){
+    score.player1 = 0;
+    score.player2 = 0
+    score.draw = 0;
+    score.round = 0;
+
+    
 }
 
 
@@ -57,6 +68,10 @@ paperBtn.addEventListener("click", function(){
 });
 scissorsBtn.addEventListener("click", function(){
     versus("scissors");
+});
+
+resetBtn.addEventListener("click", function(){
+    reset();
 });
 
 
